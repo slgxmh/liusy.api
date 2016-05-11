@@ -1,0 +1,62 @@
+<div class="dataTables_wrapper">
+    <div class="row text-right">
+        <div class="col-xs-12 form-inline">
+            <div class="dataTables_length" id="people_data_length">
+                <label>Display
+                    <select name="sample-table-2_length" aria-controls="sample-table-2" class="form-control input-sm">
+                        <option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option>
+                    </select> records</label>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Header</th>
+                    <th>Header</th>
+                    <th>Header</th>
+                    <th>Header</th>
+                </tr>
+            </thead>
+            <tbody >
+                <%for(var i=0;i
+                <data.length;i++){ var item=data[i];%>
+                    <tr>
+                        <td><%=item.id%></td>
+                        <td><%=item.name%></td>
+                        <td><%=item.value%></td>
+                        <td><%=item.type%></td>
+                        <td><%=item.info%></td>
+                    </tr>
+                    <%}%>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="text-right">
+    <ul class="pagination pagination-sm ">
+        <li>
+            <a href="#people/prev">&laquo;</a>
+        </li>
+        <li>
+            <a href="#people/1">1</a>
+        </li>
+        <li>
+            <a href="#people/2">2</a>
+        </li>
+        <li>
+            <a href="#people/3">3</a>
+        </li>
+        <li>
+            <a href="#people/4">4</a>
+        </li>
+        <li>
+            <a href="#people/5">5</a>
+        </li>
+        <li>
+            <a href="#people:next">&raquo;</a>
+        </li>
+    </ul>
+</div>

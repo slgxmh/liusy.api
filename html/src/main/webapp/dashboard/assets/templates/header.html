@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">AppCan MVC DEMO</a>
+        <div class="toogle" style="" title="菜单栏">
+            <i class="iconfont icon-list"></i>
+        </div>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#">Dashboard</a>
+            </li>
+            <li>
+                <a href="#">Settings</a>
+            </li>
+            <li>
+                <a href="#">Profile</a>
+            </li>
+            <li>
+                <a href="#">Help</a>
+            </li>
+        </ul>
+        <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+        </form>
+    </div>
+</div>
+<script>
+    $(".toogle").click(function() {
+        $(".sidebar").toggle("normal");
+        if ($(".toogle").data("showSideBar")) {
+            $(".main").addClass("col-md-10 col-md-offset-2");
+            $(".toogle").data("showSideBar", false)
+
+        } else {
+            $(".main").removeClass("col-md-10 col-md-offset-2");
+            $(".toogle").data("showSideBar", true)
+        }
+
+    }); 
+</script>
