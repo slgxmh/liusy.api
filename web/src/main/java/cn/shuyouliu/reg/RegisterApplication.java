@@ -21,7 +21,8 @@ public class RegisterApplication extends ResourceConfig {
 		register(RequestContextFilter.class);
 		register(JacksonFeature.class);
 		register(MultiPartFeature.class);
-
+		register(CORSResponseFilter.class);
+		register(LoggingResponseFilter.class);
 	}
 
 }

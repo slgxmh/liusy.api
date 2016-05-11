@@ -38,7 +38,7 @@
 		</encoder> 	    
   	</appender>  	
   		
-	<logger name="com.zyhao" additivity="false">
+	<logger name="cn.shuyouliu" additivity="false">
 	    <level value="DEBUG" />
 		<appender-ref ref="dailyRollingFileAppender"/>
 		<appender-ref ref="minuteRollingFileAppender"/>
