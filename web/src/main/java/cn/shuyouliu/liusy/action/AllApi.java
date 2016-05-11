@@ -1,5 +1,10 @@
 package cn.shuyouliu.liusy.action;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -7,8 +12,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import org.glassfish.jersey.spi.ResponseExecutorsProvider;
 
 @Path("/")
 public class AllApi {
@@ -175,6 +178,54 @@ public class AllApi {
 
 
 	private Response GetRes(String[] paths, String method) {
+		
+		if (paths.length >=2){
+			if ("people".equals( paths[0])){
+				if ("list".equals(paths[1])){
+					 Map <String,Object>map = new HashMap<String,Object>();
+					// people -> list;
+					List <Map> list = new ArrayList<Map>();
+					for (int i = 0 ; i < 10 ; i ++){
+						Map <String,String>map2 = new HashMap<String,String>();
+						map2.put("id","id"+i );
+						map2.put("name","name"+i );
+						map2.put("value","value"+i );
+						map2.put("type","type"+i );
+						map2.put("info","info"+i );
+						list.add(map2);
+					}
+					map.put("status", "0");
+					map.put("data", list);
+					
+					return Response.status(200).entity(map).build();
+				}
+			}else{
+				if ("message".equals( paths[0])){
+					if ("list".equals(paths[1])){
+						// message -> list;
+						 Map <String,Object>map = new HashMap<String,Object>();					        
+						List <Map> list = new ArrayList<Map>();
+						for (int i = 0 ; i < 10 ; i ++){
+							Map <String,String>map2 = new HashMap<String,String>();
+							map2.put("id","id"+i );
+							map2.put("name","name"+i );
+							map2.put("value","value"+i );
+							map2.put("type","type"+i );
+							map2.put("info","info"+i );
+							list.add(map2);
+						}
+						map.put("status", "0");
+						map.put("data", list);
+						
+						return Response.status(200).entity(map).build();
+					}
+				}
+
+			}
+			
+		}
+		
+		
 		String title = "title:";
 		for (int i = 0; i < paths.length; i++) {
 			title += " "+i+":"+paths[i];

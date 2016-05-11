@@ -13,6 +13,7 @@ var messageView = Backbone.View.extend({//options...
         if (this.template) {
             //使用模板+数据拼装DOM
             this.$el = $(this.template(this.model.attributes));
+            console.log(this.template(this.model.attributes))
         }
         //返回自身，便于promise调用
         return this;
@@ -26,9 +27,10 @@ var messageListView = Backbone.View.extend({
         $("select", this.$el).on("change", this.pagecountchange);
     },
     collection : new messageCollection(),
+    template : messageItemTemplate, //VIEW对应的模板
     el : '#message',
     render : function() {
-        //Update Pagination 
+    	 
     },
     load : function(direction) {
         var self = this;
