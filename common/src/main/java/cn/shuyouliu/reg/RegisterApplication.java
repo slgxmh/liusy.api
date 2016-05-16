@@ -5,6 +5,10 @@ import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
 
+import cn.shuyouliu.common.Exception404Mapper;
+
+
+
 /**
  * Registers the components to be used by the JAX-RS application
  * 
@@ -21,7 +25,9 @@ public class RegisterApplication extends ResourceConfig {
 		register(RequestContextFilter.class);
 		register(JacksonFeature.class);
 		register(MultiPartFeature.class);
-
+		register(CORSResponseFilter.class);
+		register(LoggingResponseFilter.class);
+		register(Exception404Mapper.class);
 	}
 
 }

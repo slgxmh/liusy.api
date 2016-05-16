@@ -1,11 +1,9 @@
 var tplBaseUrl = "";
-
-var baseUrl = "http://localhost:8080/web-0.0.1-SNAPSHOT";
-
-
+var BASEURL = "http://localhost:8080/web-0.0.1-SNAPSHOT";
 var constant = {
-   	API_PEOPLE : baseUrl+"/people/",
-   	API_MESSAGE : baseUrl+"/message/"
+    INTERFACE_LOGIN : "http://www.appcan.cn",
+    TEST_PEOPLE : BASEURL + "/people",
+    TEST_MSG : BASEURL + "/message"
 }
 
 var tools = {

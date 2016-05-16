@@ -12,7 +12,7 @@ upload/uploadStream
 </head>
 <body>
 <p>HTML5的内容！Hello</p>
-<form action="http://localhost:8080/upload-0.0.1-SNAPSHOT/upload/uploadStream" 
+<form action="http://localhost:9090/upload-0.0.1-SNAPSHOT/upload/uploadStream" 
 		enctype="multipart/form-data" method="post" >
         <input name="file" type="file" />
         <input type="submit" value="上传图片" />
