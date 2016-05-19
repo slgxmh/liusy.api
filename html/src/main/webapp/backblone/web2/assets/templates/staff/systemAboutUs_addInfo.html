@@ -1,0 +1,46 @@
+<table class="table table-bordered" style="margin-top:120px; width:80%; margin-left:10%;">
+   <tbody>
+      <tr class="odd_bg">
+         <td class="center">图片</td>
+         <td class="center">关于我们</td>
+         <td class="center">操作</td>
+      </tr>
+      <tr class="even_bg">
+         <td style="width:43%">
+             <img src="" style="width:100%; height:390px;" id="aboutUs_img"/>
+         </td>
+         <td class="" style="padding:0;">
+             <textarea id="cInfoarea" class="textareaa" placeholder="请输入相关信息..."></textarea>
+         </td>
+         <td class="center  mouse-pointer">
+             <!-- <button type="button" class="btn border-r20 copyURL c-wh up-pic" style="outline: none; background-color:#5D5D5D;">点击上传图片</button> -->
+            <div id="input-file" class="btn btn-default umar-r btn-success">
+                <span id="text">点击上传图片</span>
+                <input id="file" type="file" accept="image/*"/>
+            </div> 
+         </td>
+      </tr>
+      <tr class="even_bg">
+         <td style="border-right:1px solid #fff;"></td>
+         <td style="border-right:1px solid #fff;">
+             <button type="button" class="btn btn-default btn-success c-wh umar-r"  style="outline: none;" id="sysAboutUs_submit">
+               提交
+             </button>
+             <a href="#aboutUs" target="_self" >
+                 <button type="button" class="btn btn-default bc-wh"  style="outline: none; border:1px solid #ccc; color:#666666">
+                   返回
+                 </button>
+             </a>
+         </td>
+         <td></td>
+      </tr>
+   </tbody>
+</table>
+
+<script>
+    //alert(localStorage["infoType"]);
+    $("#sysAboutUs_submit").on("click",function(){
+        //alert(1);
+        aboutUsAddViewInstance.aboutUsEdit();
+    });
+</script>

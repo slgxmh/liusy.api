@@ -1,0 +1,391 @@
+<div style="overflow: hidden;">
+    <h3 class="font-c top umar-r floatL">编辑用户</h3>
+    <div id="myTab" class="top floatL">
+        <button type="button" class="btn btn-default btn-success c-wh umar-r" style="outline: none;" id="saveCtrl">
+保存
+        </button>
+        <a href="#userManage" target="_self" >
+            <button type="button" class="btn btn-default btn-success c-wh" style="outline: none;">
+               返回
+            </button>
+        </a>
+    </div>
+</div>
+
+<div style="margin-left:70px; overflow: hidden;">
+    <div class="floatL" style="margin-right: 100px; margin-top:12px;">
+        <div class="marginCss">
+            <span class="tel-verB">用户名：</span>
+            <input type="text" class="tel-verB" value="" style="border: none; outline: none;" id="userInfo_name">
+            <span class="tel-verB">@bestseller.com.cn</span>
+        </div>
+        <p  class="font-c">用户名长度3-16位之间,不能包含'@'!</p>
+        <div class="marginCss">
+            <span class="tel-verB">真实姓名：</span>
+            <input type="text" class="tel-verB" value="" style="border: none; outline: none;" id="realName">
+        </div>
+    </div>
+    <div class="floatL">
+        <div class="" style="margin-bottom: 5px; overflow: hidden;">
+            <div class="umar-r floatL" style=" border-bottom: 1px solid #999999; padding: 11px 0 5px;">
+                <span class="tel-verB">用户密码：</span>
+                <input type="password" class="tel-verB" value="000000" style="border: none; outline: none;" id="user_pwd">
+            </div>
+            <div class="floatL">
+                 <button type="button" class="btn btn-default btn-success c-wh uhide" style="outline: none;" id="pwdReset">
+
+                                                            重置
+                </button>
+            </div>
+        </div>
+        <p  class="font-c">默认密码及重置密码为6个0</p>
+        <div class="marginCss">
+            <span class="tel-verB">联系方式：</span>
+            <input type="text" class="tel-verB" value="" style="border: none; outline: none;" id="tel_phone">
+        </div>
+    </div>
+</div>
+
+<div style="border-top:2px solid #999999; margin-top:20px;">
+    <!-- <ul class="sidebar-menu iconfont" style="float:left;">
+        <li>
+            <a class="active" target="_self" href="#index" > <i class="icon-dashboard"></i> <span>首页</span> </a>
+        </li>
+        <li>
+            <a class="" target="_self" href="#test" > <i class="icon-dashboard"></i> <span>测试</span> </a>
+        </li>
+    </ul> -->
+    <!-- 左边banner部分 -->
+    <div class="user-left11">
+        <h4>移动官网</h4>
+        <ul class="sidebar-menu iconfont user-ul" style="padding-left: 20px;">
+            <!-- <li class="sub-menu">
+                <a class="side-tab" href="#goodsPublishList" target="_self" >
+                    <i class="icon-laptop"></i> 
+                    <span>ONLY</span>
+                </a>  
+            </li> -->
+            <li>ONLY</li>
+            <li>JACKJONES</li>
+            <li>VM</li>
+            <li>SELECTED</li>
+            <li>JK</li>
+        </ul>
+        <h4>导购宝</h4>
+        <ul class="sidebar-menu iconfont user-ul" style="padding-left: 20px;">
+            <li>ONLY</li>
+            <li>JACKJONES</li>
+            <li>VM</li>
+            <li>SELECTED</li>
+            <li>JK</li>
+        </ul>
+    </div>
+    <!-- 右边内容展示部分 -->
+    <div class="user-right floatL" style="margin-left:20px; width:80%;">
+        <h1>权限设置</h1>
+        <div class="margin-b">
+            <label class="uumar-r">
+                <input type="checkbox" class="vertical-center" id="adminRights">
+                                                品牌管理员权限
+            </label>
+            <label class="uumar-r">
+                <input type="checkbox" class="vertical-center" id="onlyBrowse">
+                                                仅浏览权限
+            </label>
+        </div>
+        <div class="userRight-down">
+            <!-- 系统管理 -->
+            <div class="margin-b" id="">
+                <div class="margin-b totalManage">
+                    <label class="uumar-r">
+                        <input type="checkbox" class="vertical-center totalInp">
+                                                        系统管理
+                    </label>
+                </div>
+                <div class="two-total">
+                    <div class="margin-b">
+                        <label class="uumar-r font-c">
+                            <input type="checkbox" class="vertical-center">
+                        banner管理
+                        </label>
+                        <label class="uumar-r font-c">
+                            <input type="checkbox" class="vertical-center">
+                            活动页面生成
+                        </label>
+                        <label class="uumar-r font-c">
+                            <input type="checkbox" class="vertical-center">
+                            自定义页面管理
+                        </label>
+                        <label class="uumar-r font-c">
+                            <input type="checkbox" class="vertical-center">
+                            联系我们
+                        </label>
+                        <label class="uumar-r font-c">
+                            <input type="checkbox" class="vertical-center">
+                            关于我们
+                        </label>
+                         <label class="uumar-r font-c">
+                            <input type="checkbox" class="vertical-center">
+                            照片审核
+                        </label>
+                        </label>
+                    </div>
+                    <!-- <div class="margin-b">
+                        <label class="uumar-r font-c">
+                            <input type="checkbox" class="vertical-center">
+                            照片审核
+                        </label>
+                    </div> -->
+                </div>
+            </div>
+            <!-- 用户管理 -->
+            <div class="margin-b">
+                <div class="margin-b totalManage">
+                    <label class="uumar-r">
+                        <input type="checkbox" class="vertical-center totalInp">
+                                                        用户管理
+                    </label>
+                </div>
+                <div class="margin-b two-total">
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                    权限管理
+                    </label>
+                </div>
+            </div>
+            <!-- 商品管理 -->
+            <div class="margin-b">
+                <div class="margin-b totalManage">
+                    <label class="uumar-r">
+                        <input type="checkbox" class="vertical-center totalInp">
+                                                        商品管理
+                    </label>
+                </div>
+                <div class="margin-b two-total">
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                    发布商品
+                    </label>
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                        商品信息查询
+                    </label>
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                        商品信息修改
+                    </label>
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                        商品信息删除
+                    </label>
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                        商品价格修改
+                    </label>
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                        商品上架
+                    </label>
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                        商品下架&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                        商品分类维护
+                    </label>
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                        商品信息批量导入
+                    </label>
+                </div>
+            </div>
+            <!-- 订单管理 -->
+            <div class="margin-b" id="user-orderAll">
+                <div class="margin-b totalManage">
+                    <label class="uumar-r">
+                        <input type="checkbox" class="vertical-center totalInp">
+                                                        订单管理
+                    </label>
+                </div>
+                <div class="margin-b two-total">
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                    全部订单
+                    </label>
+                    <label class="uumar-r font-c user-afterSaleOrder">
+                        <input type="checkbox" class="vertical-center">
+                        售后订单
+                    </label>
+                    <label class="uumar-r font-c user-abnormal">
+                        <input type="checkbox" class="vertical-center">
+                        异常单查询
+                    </label>
+                    <label class="uumar-r font-c">
+                        <input type="checkbox" class="vertical-center">
+                        订单导出
+                    </label>
+                </div>
+            </div>
+            <!-- 教程管理 -->
+            <div id="DGB" class="">
+                <div class="margin-b">
+                    <div class="margin-b totalManage">
+                        <label class="uumar-r">
+                            <input type="checkbox" class="vertical-center totalInp">
+                                                            教程管理
+                        </label>
+                    </div>
+                    <div class="margin-b two-total">
+                        <label class="uumar-r font-c">
+                            <input type="checkbox" class="vertical-center">
+                        教程发布
+                        </label>
+                        <label class="uumar-r font-c">
+                            <input type="checkbox" class="vertical-center">
+                            教程信息管理
+                        </label>
+                        <label class="uumar-r font-c">
+                            <input type="checkbox" class="vertical-center">
+                            教程分类维护
+                        </label>
+                    </div>
+                </div>
+                <!-- 试衣墙管理 -->
+                <div class="margin-b">
+                    <div class="margin-b totalManage">
+                        <label class="uumar-r">
+                            <input type="checkbox" class="vertical-center totalInp">
+                                                            试衣墙管理
+                        </label>
+                    </div>
+                    <div class="margin-b two-total">
+                        <label class="uumar-r font-c">
+                            <input type="checkbox" class="vertical-center">
+        试衣墙订单
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //保存 按钮点击逻辑
+    $("#saveCtrl").on("click",function(){
+        //alert("#saveCtrl");
+        //userInfoViewInstance.loadUserInfo();
+        userInfoViewInstance.addUserInfo();
+    });
+    //重置 按钮点击逻辑
+    $("#pwdReset").on("click",function(){
+        passwordResetViewInstance.pwdReset();
+    });
+    //品牌管理员权限  被选中逻辑
+    $("#adminRights").on("click",function(){
+        var onChecked = $(this).prop("checked");
+        if(onChecked){
+            $("#onlyBrowse").prop("checked",false);
+            $(".user-right input[type='checkbox']").not($("#onlyBrowse")).prop({"checked":true,"disabled":false});
+        }else{
+            $(".user-right input[type='checkbox']").prop("checked",false);
+        }
+    });
+    //仅浏览权限  被选中逻辑
+    $("#onlyBrowse").on("click",function(){
+        var onChecked = $(this).prop("checked");
+        if(onChecked){
+            $("#adminRights").prop("checked",false);
+            $(".user-right input[type='checkbox']").prop("checked",false);
+            $(this).prop("checked",true);
+            $("input",".user-afterSaleOrder").prop("checked",true);
+            $("input",".user-abnormal").prop("checked",true);
+            
+        }else{
+            $("input",".user-afterSaleOrder").prop("checked",false);
+            $("input",".user-abnormal").prop("checked",false);
+        }
+    });
+    //各个总管理点击   控制单个权限逻辑
+    $(".totalManage").on("click",function(){
+        if($("input",$(this)).prop("checked")){
+            $("input",$(this).next()).prop("checked",true);
+        }else{
+            $("input",$(this).next()).prop("checked",false);
+        }
+    });
+    
+    //各个总管理点击   控制品牌管理员权限逻辑
+    for(var i=0; i<$(".totalManage").length; i++){
+        $("input",".totalManage").eq(i).on("click",function(){
+            var flag = true;
+            for(var i=0; i<$(".totalManage").length; i++){
+                if(!$(".totalInp").eq(i).prop("checked")){
+                    flag = false;
+                    $("#adminRights").prop("checked",false);
+                    break;
+                }
+            }
+            if(flag){
+                $("#adminRights").prop("checked",true);
+            }
+        });
+    }
+    
+    //单个权限点击  控制品牌管理员权限逻辑
+    $(".two-total input:checkbox").on("click",function(){
+        if($(this).parent().parent().find("input").not("input:checked").length==0){
+            $("input",$(this).parents(".two-total").prev()).prop("checked",true);
+            if($("input:checked",".totalManage").length==$(".totalManage").length){
+                $("#adminRights").prop("checked",true);
+            }
+        }else{
+            $("input",$(this).parents(".two-total").prev()).prop("checked",false);
+            $("#adminRights").prop("checked",false);
+            //对 仅限浏览权限逻辑的 处理
+            if($("input",".user-afterSaleOrder").prop("checked")&&
+               $("input",".user-abnormal").prop("checked")&&
+               $("input:checked",".two-total").length==2
+            ){
+                $("#onlyBrowse").prop("checked",true);
+            }else{
+                $("#onlyBrowse").prop("checked",false);
+            }
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

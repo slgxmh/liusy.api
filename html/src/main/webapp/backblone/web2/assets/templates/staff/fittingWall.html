@@ -1,0 +1,93 @@
+<div id="fittingWall_content" class="">
+    <div id="content">
+        <div id="toppp" class="table-responsive div-margin-top">        
+            <div class="row col-sm-11">        
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="input-group date">
+                      <input id="createDate" type="text" placeholder="上传时间" class="form-control">
+                      <span class="input-group-addon uhide"><i class="glyphicon glyphicon-th"></i></span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="SKU"
+                                placeholder="商品SKU">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <button id="search" type="button" class="btn btn-success" style="width:50%;">查询</button>
+                </div>    
+            </div>
+            <div class="row col-sm-11">
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-6 control-label text-left">是否被举报</label>
+                            <div class="col-sm-6" style="padding-left:0;">
+                            <select class="form-control">
+                                <option>全部</option>
+                                <option>是</option>
+                                <option>否</option>
+                            </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>    
+            <div class="row col-sm-11">
+                <div class="col-sm-6">
+                    <form class="form-inline" role="form">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="selAll"> 当前页全选
+                            </label>
+                        </div>
+                        <button id="multiDelete" type="button" class="btn btn-warning" style="margin-left:20px;">删除</button>
+                        <button id="multiAudit" type="button" class="btn btn-success" style="margin-left:20px;">审核</button>
+                    </form>
+                </div>
+                <div class="col-sm-6">
+            
+                </div>
+            
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div id="tableList" class="table-responsive div-margin-top">
+            
+        </div> 
+    </div>   
+</div>   
+
+<script>
+    if (window.innerHeight){
+        winHeight = window.innerHeight;
+    }else if ((document.body) && (document.body.clientHeight)){
+        winHeight = document.body.clientHeight;
+    }
+    
+    var tableHeight = winHeight-$("#toppp","#fitwall_content").outerHeight()-130;
+    $($(".table","#fitwall_content")[0]).parent().css("height",tableHeight.toString()+"px").css("overflow-y","auto");
+    
+    //窗口大小改变
+    $(window).resize(function() {
+        if (window.innerHeight){
+            winHeight = window.innerHeight;
+        }else if ((document.body) && (document.body.clientHeight)){
+            winHeight = document.body.clientHeight;
+        }
+        var tableHeight = winHeight-$("#toppp","#fitwall_content").outerHeight()-130;
+        $($(".table","#fitwall_content")[0]).parent().css("height",tableHeight.toString()+"px");
+    });
+    
+    
+    $('.input-group.date').datepicker({
+        format: "yyyy-mm-dd",
+        language: "zh-CN"
+    });
+    
+</script>

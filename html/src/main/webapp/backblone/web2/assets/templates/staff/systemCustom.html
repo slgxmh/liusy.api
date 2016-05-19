@@ -1,0 +1,136 @@
+<!-- <div class="sys_copySuccess">复制成功</div> -->
+<div id="outer">
+    <h3 class="font-c top">自定义页面管理</h3>
+    <div class="top" id="myTab">
+        <a href="#uploadPage" target="_self" >
+            <button type="button" class="btn orange c-wh" style="outline: none;">
+               上传页面
+            </button>
+        </a>
+    </div>
+    <div>
+        <table class="table table-bordered">
+           <tbody>
+              <tr class="odd_bg">
+                 <td class="center">活动名称</td>
+                 <td class="center">活动页面URL</td>
+                 <td class="center">页面类型</td>
+                 <td class="center">上传时间</td>
+                 <td class="center">操作</td>
+              </tr>
+              <%for(var i=0; i<data.length; i++){%>
+                  <tr class="even_bg">
+                     <td class="center"><%=data[i].pageName%></td>
+                     <td class="center">
+                         <button class="btn btn-default border-r20 copyURL" value="<%=data[i].pageURL%>" style="outline: none;">点击复制URL</button>
+                     </td>
+                     <td class="center"><%=data[i].pageType%></td>
+                     <td class="center"><%=data[i].uploadDate%></td>
+                     <td class="center mouse-pointer" id="custom_del">删除</td>
+                  </tr>
+              <%}%>
+              <tr class="odd_bg">
+                 <td class="center">夏季新款</td>
+                 <td class="center">
+                     <button class="btn btn-default border-r20 copyURL" value="222222" style="outline: none;">点击复制URL</button>
+                 </td>
+                 <td class="center">活动</td>
+                 <td class="center">4.12</td>
+                 <td class="center mouse-pointer" id="custom_del">删除</td>
+              </tr>
+              <tr class="odd_bg">
+                 <td class="center">3夏季新款</td>
+                 <td class="center">
+                     <button class="btn btn-default border-r20 copyURL" value="33333" style="outline: none;">点击复制URL</button>
+                 </td>
+                 <td class="center">3活动</td>
+                 <td class="center">4.12</td>
+                 <td class="center mouse-pointer" id="custom_del">删除</td>
+              </tr>
+              <tr class="odd_bg">
+                 <td class="center">4夏季新款</td>
+                 <td class="center">
+                     <button class="btn btn-default border-r20 copyURL" value="44444" style="outline: none;">点击复制URL</button>
+                 </td>
+                 <td class="center">4活动</td>
+                 <td class="center">4.12</td>
+                 <td class="center mouse-pointer" id="custom_del">删除</td>
+              </tr>
+           </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function resizeTable(){
+        if (window.innerHeight){
+            winHeight = window.innerHeight;
+        }else if ((document.body) && (document.body.clientHeight)){
+            winHeight = document.body.clientHeight;
+        }
+        var tableHeight = winHeight-$("#myTab","#outer").outerHeight()-$("h3","#outer").outerHeight();
+        $(".table","#outer").parent().css({"height":tableHeight+"px","overflow-y":"auto"});
+    }
+    resizeTable();
+
+    //窗口大小改变
+    $(window).resize(function() {
+        resizeTable();
+    });
+    
+    //点击复制URL
+    ZeroClipboard.config({
+        swfPath: 'js/ZeroClipboard.swf'
+    });
+    var clips = new ZeroClipboard($(".copyURL"));
+    var urlLen = $(".copyURL").length;
+    var urls = [];//将所有url放入一个数组
+    for(var i=0; i<urlLen; i++){
+        urls.push($(".copyURL").eq(i).val());
+    }
+    clips.on('copy', function(e) {
+        console.log("this~~~"+JSON.stringify(this));
+        var zcClippingId = e.target.zcClippingId;
+        var clipingId = zcClippingId.split("_")[1];
+        clips.setData("text/plain",urls[clipingId-(urls.length)]);
+    });
+    //弹出 复制成功提示框
+    $(".copyURL").on("click",function(){
+        var offsetTop = $(this).offset().top;
+        //alert("offsetTop~~~~~"+offsetTop);
+        var offsetLeft = $(this).offset().left;
+        //alert("offsetLeft"+offsetLeft);
+        var sys_copySuccess1 = "<div class='sys_copySuccess'>☺ 复制成功</div>";
+        $("#outer").prepend(sys_copySuccess1);
+        $(".sys_copySuccess").css({
+            "position":"absolute",
+            "left":+offsetLeft+"px",
+            "top":+offsetTop+"px"
+        }).show().fadeOut(3000);
+        window.setTimeout(function(){
+            $("#outer").children()[0].remove();
+        },5000);
+    });
+    //clips.on("aftercopy", function(e) {
+        //alert("top~~~~"+$("#myTab").offset().top);
+        //alert("复制后~~~~"+JSON.stringify(e));
+        // var zcClippingId = e.target.zcClippingId;
+        // var clipingId = zcClippingId.split("_")[1];
+        // alert(clipingId-urls.length+1);
+        // console.log(JSON.stringify($("tr","#outer table").eq(1)));
+        // var top = $("tr","#ddddd").eq(clipingId-(urls.length)).offset().top;
+        // alert("top"+top);
+        // var $copysuc = $("<div class='copy-tips'><div class='copy-tips-wrap'>☺ 复制成功</div></div>");
+        // $("body").find(".copy-tips").remove().append($copysuc);
+        // $(".copy-tips").fadeOut(3000);
+            //.copy-tips
+        //alert(e.data["text/html"] = "<b>Blah</b>");
+    //});
+    //点击删除
+    $("#custom_del").on("click",function(){
+        //alert(1);
+        var pageId = 1
+        customPageListViewInstance.customPageDel(pageId,$(this));
+        customPageListViewInstance.loadCustomPageList();
+    });
+    
+</script>

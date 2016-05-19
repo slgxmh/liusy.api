@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cn.shuyouliu</groupId>
 	<artifactId>parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	
 	<packaging>pom</packaging>
 	<properties>
 		<spring.version>3.2.6.RELEASE</spring.version>
@@ -11,7 +11,9 @@
 		<jersey.version>2.22.2</jersey.version>
 		<logback.version>1.1.1</logback.version>
 		<jcloverslf4j.version>1.7.6</jcloverslf4j.version>
+		<shuyouliu.version>0.0.1-SNAPSHOT</shuyouliu.version>
 	</properties>
+	<version>${shuyouliu.version}</version>
 
 	<name>parent</name>
 	<description>liusy.api.manager</description>
@@ -83,6 +85,9 @@
 		<module>../upload</module>
 		<module>../errorJson</module>
 		<module>../common</module>
+		<module>../sql</module>
+		<module>../service</module>
+		<module>../dao</module>
 	</modules>
 
 	<!-- 设定主仓库，按设定顺序进行查找。 -->

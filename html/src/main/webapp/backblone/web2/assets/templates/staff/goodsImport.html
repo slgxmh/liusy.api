@@ -1,0 +1,132 @@
+<div class="table-responsive div-margin-top2">
+        <ul class="nav nav-tabs">
+            <li class="active col-sm-2 text-center paddrl0" data-id="normalImport">
+                <a href="#goodsImport">商品信息批量导入</a>
+            </li>
+            <li class="col-sm-2 text-center paddrl0" data-id="specialImport">
+                <a href="#goodsImport">特殊情况批量导入</a>
+            </li>
+            <li class="col-sm-2 text-center paddrl0" data-id="goodsExport">
+                <a href="#goodsImport">商品信息导出</a>
+            </li>
+        </ul>
+</div>
+<div id="normalImport" class="import_content">
+    <div class="row">
+        <div class="col-md-10 paddrl0"> 
+            <table class="table table-bordered">
+                <!-- <thead>
+                    <tr>
+                        <th>商品尺码SKU:</th>                
+                    </tr>
+                </thead> -->
+                <tbody class="text-center">            
+                    <tr>
+                        <td>分类信息批量上传</td>
+                        <td>
+                            <div class="row">
+                                <span>EXCEL文件</span>
+                                <input type="file" id="classifyfile">
+                                <!-- <p class="help-block"></p> -->
+                            </div>
+                        </td>
+                        <td><button id="classifyUpload" class="btn btn-default">上传</button>
+                            <button class="btn btn-default templateDownload">模板下载</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>上架状态信息批量上传</td>
+                        <td>
+                            <div class="row">
+                                <span>EXCEL文件</span>
+                                <input type="file" id="statusfile">
+                                <!-- <p class="help-block"></p> -->
+                            </div>
+                        </td>
+                        <td>
+                            <button id="statusUpload" class="btn btn-default">上传</button>
+                            <button class="btn btn-default templateDownload">模板下载</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>导购自定义信息批量上传</td>
+                        <td>
+                            <div class="row">
+                                <span>EXCEL文件</span>
+                                <input type="file" id="guidefile">
+                                <!-- <p class="help-block"></p> -->
+                            </div>
+                        </td>
+                        <td><button id="guideUpload" class="btn btn-default">上传</button>
+                            <button class="btn btn-default templateDownload">模板下载</button>
+                        </td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="specialImport" class="import_content" style="display:none;">
+    <div class="row">
+        <div class="col-md-10 paddrl0"> 
+            <table class="table table-bordered">
+                <tbody class="text-center">            
+                    <tr>
+                        <td>下架信息批量上传</td>
+                        <td>
+                            <div class="row">
+                                <span>EXCEL文件</span>
+                                <input type="file" id="unshelvefile">
+                                <!-- <p class="help-block"></p> -->
+                            </div>
+                        </td>
+                        <td><button class="btn btn-default templateDownload">上传</button>
+                            <button class="btn btn-default templateDownload">模板下载</button>
+                        </td>
+                    </tr>  
+                    <tr>
+                        <td>折扣信息批量上传</td>
+                        <td>
+                            <div class="row">
+                                <span>EXCEL文件</span>
+                                <input type="file" id="discountfile">
+                                <!-- <p class="help-block"></p> -->
+                            </div>
+                        </td>
+                        <td><button id="discountUpload" class="btn btn-default">上传</button>
+                            <button class="btn btn-default templateDownload">模板下载</button>
+                        </td>
+                    </tr>                                     
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="goodsExport" class="import_content" style="display:none;">
+    <div class="row">
+        <div class="col-md-6 paddrl0"> 
+            <table class="table table-bordered">
+                <tbody class="text-center">            
+                    <tr>
+                        <td>商品信息导出</td>
+                        
+                        <td><button id="goodsExport" class="btn btn-default">导出</button></td>
+                    </tr>  
+                                                       
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+     $('.nav-tabs li', '#goodsImport').on('click', function(){
+         var id = $(this).data('id');
+         $('.nav-tabs li', '#goodsImport').removeClass('active');
+         $(this).addClass('active');
+         $('.import_content').hide();
+         setTimeout(function(){
+             $('#'+id).show();
+         },100);
+     })    
+</script>

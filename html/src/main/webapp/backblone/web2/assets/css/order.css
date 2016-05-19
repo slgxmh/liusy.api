@@ -1,0 +1,38 @@
+.div-margin-top{
+    margin-top:30px;
+}
+.div-margin-top2{
+    margin-top:15px;
+}
+.table-bottom-bordered{
+    border-bottom: 1px solid #ddd;
+}
+.table-no-margin{
+    margin-bottom: 0 !important;
+}
+.td-no-padding{
+    padding-left:0 !important;
+    padding-right:0 !important;
+    padding:0 !important;
+}
+.td-no-padding2{
+    padding-left:0 !important;
+    padding-right:0 !important;
+}
+.td-no-border{
+    border:0 !important;
+}
+.table-no-bg{
+    background-color:initial !important;
+}
+
+.img-in-table-td{
+    width:80px;
+    height:100px;
+}
+#orderAfterDetail_content table{
+    margin-bottom: 0!important;
+}
+#orderDetail_content table{
+    margin-bottom: 0!important;
+}

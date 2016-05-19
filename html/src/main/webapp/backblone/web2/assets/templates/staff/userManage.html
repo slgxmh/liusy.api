@@ -1,0 +1,183 @@
+<div id="userManage_content">
+    <div class="" style="margin:30px 0;" id="myTab">
+        <input type="text" placeholder="用户查询（员工姓名）" class="font-c chaxun" style="vertical-align: bottom" id="searchName" value=""/>
+        <span class="user-media944">
+            <button type="button" class="btn btn-default btn-success c-wh umar-r" style="outline: none;" id="search">
+           查询
+        </button>
+        <button type="button" class="btn btn-default btn-success c-wh umar-r" style="outline: none;" id="exportExcel">
+           导出
+        </button>
+        <a href="#adduser_add" target="_self" >
+            <button type="button" class="btn orange c-wh umar-r" style="outline: none;">
+               添加用户
+            </button>
+        </a>
+        </span>
+    </div>
+    <div>
+        <table class="table table-bordered table-striped" id="userInfoList">
+           <tbody>
+              <tr class="">
+                 <td class="center">用户ID</td>
+                 <td class="center">用户名</td>
+                 <td class="center">员工姓名</td>
+                 <td class="center">联系方式</td>
+                 <td class="center">权限设置</td>
+                 <td class="center">操作</td>
+              </tr>
+              <div id="listInfo">
+                  <%for(var i=0; i<data.length; i++){%>
+                      <tr class="">
+                         <td class="center"><%=data[i].userId%></td>
+                         <td class="center mouse-pointer userEmail">
+                             <a href="#adduser" target="_self" >
+                                 <%=data[i].userName%>
+                             </a>
+                         </td>
+                         <td class="center"><%=data[i].realName%></td>
+                         <td class="center"><%=data[i].phone%></td>
+                         <td class="center"><%=data[i].permissions.type1%></td>
+                         <td class="center mouse-pointer deleteUser">删除</td>
+                      </tr>
+                      <!-- <%if(i%2===0){%>
+                          <%$("tr").eq(i).addClass("odd_bg")%>
+                      <%}else{%>
+                          <%$("tr").eq(i).addClass("even_bg")%>
+                      <%}%> -->
+                  <%}%>
+              </div>
+              <!-- <tr class="even_bg">
+                 <td class="center">80</td>
+                 <td class="center mouse-pointer">1236@163.com</td>
+                 <td class="center">运营</td>
+                 <td class="center">15901239876</td>
+                 <td class="center">admin</td>
+                 <td class="center mouse-pointer">删除</td>
+              </tr>
+              <tr class="odd_bg">
+                 <td class="center">80</td>
+                 <td class="center mouse-pointer">1236@163.com</td>
+                 <td class="center">运营</td>
+                 <td class="center">15901239876</td>
+                 <td class="center">admin</td>
+                 <td class="center mouse-pointer">删除</td>
+              </tr> -->
+           </tbody>
+        </table>
+    </div>
+    <!-- 底部分页部分-->
+    <div class="" id="userManage_footer">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <p class="pagination">
+                    当前页<span id="presentCount"><%=data.length%></span>条,共<span id="totalCount"><%=totalCount%></span>条.每页1-20
+                </p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 user-page user-display-inlineBlock">
+                <div class="row">
+                    <div class="col-sm-4 text-right user-display-inlineBlock user-verT">
+                       <form role="form" class="pagination">
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </form> 
+                    </div>
+                    <div class="col-sm-8 user-display-inlineBlock">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#">&laquo;</a>
+                            </li>
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+                            <li>
+                                <a href="#">2</a>
+                            </li>
+                            <li>
+                                <a href="#">3</a>
+                            </li>
+                            <li>
+                                <a href="#">4</a>
+                            </li>
+                            <li>
+                                <a href="#">5</a>
+                            </li>
+                            <li>
+                                <a href="#">&raquo;</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--分页部分-->
+<!-- <div style="overflow: hidden;">
+    <div style="float:left;">当前页<span>2</span>条,共<span>2</span>条.每页1-20</div>
+    <div style="float:right; margin-right:50px;">
+        <div style="position: relative; float:left;">
+            <input type="text" value="1" class="umar-r" style="width:55px; height:32px; padding:0 5px; outline: none;">
+            <span class="up pageCtrl"></span>
+            <span class="down pageCtrl"></span>
+        </div>
+    </div>
+</div> -->
+<script>
+    
+    function resizeTable(){
+        if (window.innerHeight){
+            winHeight = window.innerHeight;
+        }else if ((document.body) && (document.body.clientHeight)){
+            winHeight = document.body.clientHeight;
+        }
+        var tableHeight = winHeight-$("#myTab","#userManage_content").outerHeight()-$("#userManage_footer","#userManage_content").outerHeight()-200;
+        $(".table","#userManage_content").parent().css({"height":tableHeight+"px","overflow-y":"auto"});
+    }
+    resizeTable();
+    //窗口大小改变
+    $(window).resize(function() {
+        resizeTable();
+    });
+    
+    //点击   查询  按钮
+    $("#search","#userManage_content").on("click",function(){
+        userManageViewInstance.loadUserInfoList_search();
+    });
+    //点击   导出  按钮
+    $("#exportExcel","#userManage_content").on("click",function(){
+        //alert(1);
+        //userManageViewInstance.exportExcel();
+    });
+    //点击  用户名链接  按钮
+    $(".userEmail","#listInfo").on("click",function(){
+        //alert(1);
+        // var userEmail = $(this).text();
+        // localStorage.setItem("userEmail","userEmail");
+    });
+    //点击  删除  按钮
+    $(".deleteUser",".table").on("click",function(){
+        var userId = $($(this).parent().children()[0]).text();
+        userDelViewInstance.deleteUser(userId,$(this));
+        userManageViewInstance.loadUserInfoList();
+    });
+    //点击  select页码 
+    $("select","#userManage_footer form").change(function(){
+        var page = $("option:selected","#userManage_footer form").text();
+        //alert(page);
+        userManageViewInstance.loadUserInfoList_page(page);
+    });
+    //点击  li页码 
+    $(".pagination li","#userManage_footer").on("click",function(){
+        var page = $("a",$(this)).text();
+        // alert(page);
+        userManageViewInstance.loadUserInfoList_page(page);
+    });
+</script>

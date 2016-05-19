@@ -1,0 +1,17 @@
+<%for(var j=0;j<data.length;j++){%>
+<div class="sub-menu111 paddr15 paddl15">
+    <div class="side-tab111 paddtb8" style="padding-left: 40px;">
+        <a onclick="classifyExpandPop(this)" class="fold" style="position: absolute;left: 14px;top:12;"><img src="assets/css/img/jia.png" width="16" height="16" /></a>
+        <input data-classifyid = <%=data[j].classifyId%> class="selAll" type="checkbox" style="position: absolute;left: 36px;top:12;">
+        <label><%=data[j].classifyName%></label>
+    </div>
+    <ul class="sub111 uhide">
+        <%for(var i=0;i<data[j].list.length;i++){%>
+        <li class="leaf">
+            <input id="selAll" data-classifyid=<%=data[j].list[i].classifyId%> type="checkbox" style="position: absolute;left: 36px;top:12;">
+            <a><%=data[j].list[i].classifyName%></a>    
+        </li>
+        <%}%>        
+    </ul>      
+</div>
+<%}%>

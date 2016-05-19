@@ -1,0 +1,36 @@
+<table class="table table-bordered text-center">
+    <tbody >       
+        <tr>
+            <th class="min-width80 text-center"></td>
+            <th class="text-center">商品</th>
+            <th class="text-center">实际销量</th>
+            <th class="text-center">吊牌价</th>
+            <th class="text-center">销售价价</th>
+            <th class="text-center">折扣</th>
+            <th class="text-center">库存数量</th>
+            <th class="w72p text-center">上架时间</th>
+            <th class="text-center">操作</td>
+        </tr>   
+        <%for(var i=0;i<data.length;i++){ %>
+            <tr>            
+                <td class="w60p"><input type="checkbox" value="<%=data[i].goodsId%>" ></td>
+                <td class="">
+                    <div style="display: inline-block">
+                        <img src="<%=data[i].url%>" class="" width="120" height="180"/>
+                    </div>
+                    <div class="" style="display: inline-block;">                            
+                        <p class=""><%=data[i].colorSKU%></p>
+                        <p class=""><%=data[i].goodsName%></p>                              
+                    </div>
+                </td>
+                <td>实际销量 未返回</td>
+                <td><%=data[i].originalPrice%></td>
+                <td><%=data[i].price%></td>
+                <td><%=data[i].discount*100+"%"%></td>
+                <td><%=data[i].stockCount%></td>
+                <td class="w72p">上架时间未返回</td>
+                <td><a href="#goodsDetail?goodsId=120444114">查看</a></td>
+            </tr> 
+        <%}  %>                                                              
+    </tbody>
+</table>

@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+        <div id="tutorialMaintainClassify" class="col-md-2 sidebar nav-collapse " style="left:16%;color:#333;" >
+            <div id="classify" class="classify212 col-sm-12 text-center ">
+                <div class="padda20 tab">            
+                    <div class="tab-item active paddtb8" data-id="standardClasf">教程分类</div>
+                </div>
+                <%for(var i=0; i<data.length;i++){%>
+                    <div class="bc-wh row padd212" style="cursor: pointer;">
+                        <div class="col-md-10 classifyName">
+                            <span class=""><%=data[i].classifyName%></span>
+                        </div>
+                        <div class="col-md-2 tutorial_del" data-classifyId="<%=data[i].classifyId%>">
+                            <a><img src="assets/css/img/delete.png" width="16" height="16" /></a>
+                        </div>
+                    </div>
+                <%}%>
+            </div>
+        </div>
+        <div class="col-md-10 col-md-offset-2">
+            <div class="paddl15" style="margin-top:30px;">
+                <input type="text" placeholder="分类名称：" class="font-c chaxun" style="vertical-align: bottom;background-image:none;padding-left:10px;" id="tutorial_name"/>
+                <button type="button" class="btn btn-default green c-wh" style="outline: none;" id="trtorial_save">
+                   保存
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //点击保存按钮  
+    $("#trtorial_save").on("click",function(){
+        //alert("trtorial_save");
+        if(!$("#tutorial_name",".paddl15").data("classifyId")){//新增 分类 逻辑
+            courseClassifyListInstance.addCourseClassify();
+            courseClassifyListInstance.loadCourseClassifyList();
+        }else{//编辑已有分类 逻辑
+            courseClassifyListInstance.editCourseClassify();
+            courseClassifyListInstance.loadCourseClassifyList();
+        }
+        
+    });
+    
+    //点击删除按钮  
+    $(".tutorial_del").on("click",function(){
+        //alert("#tutorial_del");
+        courseClassifyListInstance.delCourseClassify($(this));
+    });
+    //点击分类名称  进行编辑
+    $(".classifyName").on("click",function(){
+        var classifyId = $(this).next().attr("data-classifyId");
+        $("#tutorial_name",".paddl15").val($($(this).children()[0]).text());
+        $("#tutorial_name",".paddl15").data("classifyId",classifyId);
+    });
+</script>

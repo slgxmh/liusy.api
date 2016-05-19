@@ -1,0 +1,75 @@
+<div id="sys_bannerManage">
+    <div class="top" id="myTab">
+       <a href="#addBanner" target="_self" >
+           <button type="button" class="btn btn-default c-wh btn-success" style="outline: none;">
+              添加banner
+           </button>
+       </a>
+       <span class="top_span">最多添加10张，已添加<span id="already"></span>张，可添加<span id="surplus"></span>张</span>
+    </div>
+    <div>
+        <table class="table table-bordered table-striped">
+           <thead>
+              <tr class="">
+                 <th class="center">顺序</th>
+                 <th class="center">banner名称</th>
+                 <th class="center">页面类型</th>
+                 <th class="center">操作</th>
+              </tr>
+           </thead>
+           <tbody>
+               <%for(var i=0; i<data.length; i++){%>
+                  <tr class="even_bg">
+                     <td class="center"><%=i+1%></td>
+                     <td>
+                         <img src="<%=data[i].picUrl%>" class="img_size"/>
+                         <span><%=data[i].classifyName%></span>
+                     </td>
+                     <td class="center">活动</td>
+                     <td class="center mouse-pointer">
+                         <span class="umar-r sort-up" id="">上移</span>
+                         <span class="umar-r sort-down" id="">下移</span>
+                         <span class="delBanner">删除</span>
+                     </td>
+                  </tr>
+              <%}%>
+           </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function resizeTable(){
+        if (window.innerHeight){
+            winHeight = window.innerHeight;
+        }else if ((document.body) && (document.body.clientHeight)){
+            winHeight = document.body.clientHeight;
+        }
+        var tableHeight = winHeight-$("#myTab","#sys_bannerManage").outerHeight()-90;
+        $(".table","#sys_bannerManage").parent().css({"height":tableHeight+"px","overflow-y":"auto"});
+
+    }
+    resizeTable();
+    //窗口大小改变
+    $(window).resize(function() {
+        resizeTable();
+    });
+     //点击上移操作
+    $(".sort-up","#sys_bannerManage").on("click",function(){
+        //alert(10);
+        bannerSortViewInstance.bannerSort();
+        bannerListViewInstance.loadbannerList();
+    });
+    //点击下移操作
+    $(".sort-down","#sys_bannerManage").on("click",function(){
+        bannerSortViewInstance.bannerSort();
+        bannerListViewInstance.loadbannerList();
+    });
+    //点击删除操作
+    $(".delBanner","#sys_bannerManage").on("click",function(){
+        // var bannerId = $($(this).parent().children()[0]).text();
+        var bannerId = 1;
+        bannerDelViewInstance.bannerDel(bannerId,$(this));
+        bannerListViewInstance.loadbannerList();
+    });
+   
+</script>

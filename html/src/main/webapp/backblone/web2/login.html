@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+        <title>员工登录</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">        
+    </head>
+    <body style="background-color: #eee;">
+        <div class="container">
+            <div class="login-padd">
+                <div class="text-center"><img src="assets/css/img/loginlogo.png"  style="width:175px; height: 101px;"/>
+                </div>
+            </div>
+            <form class="form-signin" onSubmit="return false">                
+                <label for="inputEmail" class="sr-only">Email address</label>                                                
+                <div class="form-col" style="line-height: 33px;">
+                    <div class="col-md-1 col-rl00"><img src="assets/css/img/person.png" width="25" height="32"/></div>
+                    
+                    <div class="col-md-11 col-rl00">
+                        <input type="text" id="loginname" class="login_input" placeholder="请输入用户名" required autofocus>
+                    </div>   
+                    <div class="clearfix"></div>                  
+                </div>
+                <div class="form-col margint10" style="line-height: 33px;">
+                    <div class="col-md-1 col-rl00"><img src="assets/css/img/password.png" width="25" height="32"/></div>
+                    
+                    <div class="col-md-11 col-rl00">
+                        <input type="text" id="loginpassword" class="login_input" placeholder="请输入密码" required autofocus>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>  
+                <div class="form-col margint10">
+                    <div class="col-md-1 col-rl00"><img src="assets/css/img/phone.png" width="26" height="32"/></div>
+                    
+                    <div class="col-md-11 col-rl00">
+                        <select id="logintype" style="margin-top: 5px;">
+                            <option value="H5">移动手机官网</option>
+                            <option value="DGB">导购宝</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- <img src="assets/css/img/phone.png" style="width:30px; height: 44px;"/>
+                    <select class="margint10" style="-webkit-appearance:none;">
+                        <option>移动手机官网</option>
+                        <option>导购宝</option>
+                    </select> -->
+                </div>                
+                
+                <!--<div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>-->
+                <div class="text-right margint10">忘记密码</div>
+                <div class="paddrl40 marginm10">
+                    <button id="submit" class="btn-lg btn-block c-wh font-20" style="padding: 10px 0;" type="submit">登陆</button>
+                </div>
+            </form>
+    
+        </div> <!-- /container -->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/lib/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/lib/underscore.js"></script>
+        <script src="js/lib/backbone.js"></script>
+        <script src="js/lib/backbone.stickit.js"></script>
+        <script src="assets/global.js"></script>
+        <script src="assets/models/login.js"></script>
+        <script src="assets/services/login.js"></script>
+        <script src="assets/views/login.js"></script>
+    </body>
+    <script>
+    
+    </script>
+</html>

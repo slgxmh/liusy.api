@@ -1,0 +1,17 @@
+<%for(var j=0;j<data.length;j++){%>
+    <div class="sub-menu111">            
+        <div class="side-tab111 row padd112">
+            <div class="col-sm-12 paddrl0 paddtb12" data-classifyid=<%=data[j].classifyId%>>
+                <a onclick="classifyExpandSide(this)"><img src="assets/css/img/jia.png" width="20" height="20" /></a>
+                <a onclick="classifySelected(this)" class="marginr10"><%=data[j].classifyName%></a>
+            </div>            
+        </div>
+        <ul class="sub111 uhide">
+            <%for(var i=0;i<data[j].list.length;i++){%>
+            <li class="leaf">
+                <a onclick="classifySelected(this)" data-classifyid=<%=data[j].list[i].classifyId%> ><%=data[j].list[i].classifyName%></a>    
+            </li>
+            <%}%>    
+        </ul>      
+    </div>
+<%}%>

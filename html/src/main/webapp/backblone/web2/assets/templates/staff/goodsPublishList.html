@@ -1,0 +1,103 @@
+<div id="publishList_content" class="container-fluid">
+    <div id="content">
+        <div id="toppp">
+            <div class="row">
+                <h3 class="col-md-4 div-margin-top">
+                    商品发布<small>(商品需要先设置分类才允许发布)</small>
+                </h3>
+            </div>
+            <div class="row paddl4 div-margin-top2">        
+                <div class="col-md-2 col-sm-6">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input id="colorSKU" type="text" class="form-control" id="num" placeholder="编号">
+                            </div>
+                        </div>
+                    </form>
+                    <!-- <span>编号</span>
+                    <input class="bordernone margint0" type="text" /> -->
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input id="goodsName" type="text" class="form-control" id="name" placeholder="名称">
+                            </div>
+                        </div>
+                    </form>
+                    <!-- <span>名称</span>
+                    <input class="bordernone margint0" type="text" /> -->
+                </div>
+                <div class="col-md-1 col-sm-3 marginl15">
+                    <form role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <select id="goodsType" class="form-control float-left">
+                                <option value="">全部类型</option>                                
+                            </select>
+                        </div>
+                    </form>               
+                </div>
+                <div class="col-md-2 col-sm-2 marginl15">
+                    <button id="search" class="btn btn-success"> 查询</button>
+                </div>
+            </div>
+            <div class="row paddl4">
+                <div class="col-md-2 col-sm-3 form-horizontal">
+                    <div class="checkbox">
+                        <label>
+                           <input onclick="goodsCheckbox11(this)" id="selAll" type="checkbox">全选
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-3">
+                    <button id="setClassify" class="btn btn-default paddl15 paddr15">设置分类</button>
+                </div>
+                <!-- <div class="col-md-2 col-sm-3">
+                    <button id="setClassify" class="btn btn-default paddr15 paddr15">定时发布</button>
+                </div> -->
+                <div class="col-md-2 col-sm-3">
+                    <button id="goodsPublish" class="btn btn-default paddr15 paddr15">发布</button>
+                </div>
+            </div>
+        </div>
+        <div id="tableList" class="margint20">
+              
+        </div> 
+    </div> 
+    <div id="classifyPop" class="uhide">
+        <div class="zhezhao" class="uhide"></div>
+        <div id="classifyList" class="classify212 paddrl0 col-sm-3 col-sm-offset-4 bc-eee" style="z-index: 1299;">         
+            <div class="text-center padda20">
+                <button id="setClassifySubmit" class="btn btn-success">提交</button>
+                <button class="btn btn-success closeXXX">返回</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(".zhezhao","#classifyPop").css("height",winHeight+"px");   
+    
+    if (window.innerHeight){
+        winHeight = window.innerHeight;
+    }else if ((document.body) && (document.body.clientHeight)){
+        winHeight = document.body.clientHeight;
+    }              
+    var tableHeight = winHeight-$("#toppp","#publishList_content").outerHeight()-90;
+    $(".table","#publishList_content").parent().css("max-height",tableHeight.toString()+"px").css("overflow-y","auto");
+    
+    //窗口大小改变
+    $(window).resize(function() {
+        if (window.innerHeight){
+            winHeight = window.innerHeight;
+        }else if ((document.body) && (document.body.clientHeight)){
+            winHeight = document.body.clientHeight;
+        }
+        tableHeight = winHeight-$("#toppp","#publishList_content").outerHeight()-90;
+        $(".table","#publishList_content").parent().css("max-height",tableHeight.toString()+"px");
+    });
+
+</script>

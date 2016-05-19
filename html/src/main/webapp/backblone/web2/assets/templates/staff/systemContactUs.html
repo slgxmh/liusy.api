@@ -1,0 +1,24 @@
+<h3 class="font-c top">联系我们</h3>
+<div class="v-center" style="margin-top:146px;">
+    <div class="tel-marB">
+        <span class="tel-icon tel-verB"></span>
+        <span class="font-c">售前电话：</span>
+        <input type="text" value="" class="tel-inp font-c" id="sys_prePhone"/>
+    </div>
+    <div>
+        <span class="tel-icon tel-verB"></span>
+        <span class="font-c">售后电话：</span>
+        <input type="text" value="" class="tel-inp font-c" id="sys_serPhone"/>
+    </div>
+    <div class="v-center" style="margin-top:30px;">
+        <button type="button" class="btn btn-default btn-success c-wh" style="outline: none;" id="sys_save">
+           保存
+        </button>
+    </div>
+</div>
+
+<script>
+    $("#sys_save").on("click",function(){
+        contactUsInfoViewInstance.contactUsEdit();
+    });
+</script>

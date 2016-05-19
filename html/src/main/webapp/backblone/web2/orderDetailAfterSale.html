@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="renderer" content="webkit">
+        <link rel="icon" href="favicon.ico">
+
+        <title>MSS后台管理系统</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <!-- <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"> -->
+        <link href="css/bootstrap-wysiwyg-style.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+        <link href="assets/css/dashboard.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="assets/css/order.css" rel="stylesheet">
+        <link href="assets/css/fonts/iconfont.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div id="orderAfterDetail_content" class="vertical-center">
+                
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="js/lib/jquery.js"></script>
+        <script src="js/lib/jquery.hotkeys.js"></script>
+        <script src="js/lib/underscore.js"></script>
+        <script src="js/lib/backbone.js"></script>
+        <script src="js/lib/backbone.stickit.js"></script>
+        <script src="js/lib/template.import.js"></script>
+        <script src="js/lib/lazyload.js"></script>
+        <script src="js/canvas-to-blob.min.js"></script>
+        <script src="js/fileinput.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="assets/global.js"></script>  
+        <script src="assets/services/order.js"></script>
+        <script src="assets/models/orderReturnDetail.js"></script>
+        <script src="assets/views/orderReturnDetail.js"></script>     
+    </body>
+    <script>
+        window.onload = function(){
+            var newOrderReturnDetailView = new orderReturnDetailView();
+            newOrderReturnDetailView.load();
+        }
+    </script>
+</html>

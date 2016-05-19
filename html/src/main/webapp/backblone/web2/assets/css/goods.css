@@ -1,0 +1,173 @@
+/*index 页面css开始*/
+#index_content .table td{
+    padding: 16px 4px;
+}
+#index_content .table th{
+    border-bottom: none;
+}
+/*index 页面css结束*/
+
+
+
+
+/*gooodsPublishList 页面css开始*/
+
+
+
+#publishList_content input{
+    background-color: #FFF;
+}
+
+#publishList_content checkbox{
+    margin-top: 4px;
+}
+#publishList_content table{
+    margin-bottom: 0px;
+}
+
+#publishList_content td{
+    vertical-align: middle;
+}
+
+.zhezhao{
+    height: 100%;
+    width:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background:#000; 
+    opacity:0.3;
+    z-index: 1199;
+}
+
+#classifyPop{
+    height: 100%;
+    width:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background:transparent; 
+    padding-top: 148px;
+    padding-bottom: 20px;
+    vertical-align: middle;    
+}
+
+#classifyPop .classify212 ul{
+    background-color: #FFF;
+}
+
+#classifyPop checkbox{
+    padding-top: 6px;
+}
+#classifyPop .classify212 ul{
+    list-style: none;
+    padding-left: 42px!important;
+    margin-bottom: 0;
+}
+
+/*gooodspublishList_content 页面css结束*/
+
+
+/*gooodsPublish 页面css开始*/
+
+#goodsPublish_content p{
+    margin-bottom: 0;
+}
+
+#goodsPublish_content .radio{
+    margin: 0;
+}
+#goodsPublish_content .table th{
+    border: none;
+    padding: 0;
+}
+
+/*gooodsPublish 页面css结束*/
+
+
+
+/*gooodsImport 页面css开始*/
+.import_content{
+    padding: 30px 20px 20px 20px;
+}
+.import_content input[type=file]{
+    display: inline-block;
+}
+.import_content .table td{
+    vertical-align: middle;
+}
+/*gooodsImport 页面css结束*/
+
+/*gooodsClassify 页面css开始*/
+/*分类侧边栏 页面css开始*/ 
+#goodsInfo_content .classify212,#goodsClassify_content .classify212{
+    background-color: #eee;
+}
+
+#shelvePop{
+    height: 100%;
+    width:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background:transparent; 
+    vertical-align: middle; 
+    z-index: 1299; 
+}
+#shelvePop ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#shelvePop ul li:nth-child(2n-1){
+    padding: 0;
+    margin: 0 6px 6px 0;
+}
+#shelvePop ul li:nth-child(2n){
+    padding: 0;
+    margin: 0 0 6px 0;
+}
+
+.classify212 .tab-item{
+    color: #000;
+    background-color: #FFF;
+    border-radius: 4px;
+    border: 1px solid #3cae85;
+}
+.classify212 .tab .active{
+    color:#FFF;
+    background-color: #3cae85;
+    border-radius: 4px;
+}
+.padd112{
+    padding: 0px 20px;
+}
+.classify212 li{
+    padding-top: 4px!important;
+    padding-bottom: 4px!important;
+}
+#goodsInfo_content #classifyList ul,#goodsClassify_content .classify212 ul{
+    list-style: none;
+    padding-left: 32px!important;
+}
+.classify212  a{
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+.classify212 li a:hover{
+    color: #000;
+}
+
+/*gooodsClassify 页面css结束*/
+
+
+#goodsInfo_right .table>tbody>tr>td{
+    vertical-align: middle!important;
+}
+#goodsInfo_right .table input[type="checkbox"]{
+    display: inline-block!important;
+}
+
+
+

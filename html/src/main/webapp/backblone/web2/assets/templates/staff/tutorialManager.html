@@ -1,0 +1,256 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- <div id="tutorialClassify_content" class="classify212 col-md-2 sidebar nav-collapse " style="left:16%;color:#333;" data-import="assets/templates/staff/tutorialManagerClassify.html"></div>
+        <div class="col-md-10 col-md-offset-2 "  data-import="assets/templates/staff/tutorialManagerContent.html"></div> -->
+        <div id="tutorialClassify_content" class="classify212 col-md-2 sidebar nav-collapse " style="left:16%; background-color:#EEE; color:#333;">
+            <div id="classify" class="col-sm-12 text-center ">
+                <div class="padda20 tab">            
+                    <div class="tab-item active paddtb8" data-id="tutorialClasf">教程分类</div>
+                </div>
+                <div class="bc-wh row padd212">
+                    <div class="paddtb8 margint10 mouse-pointer" data-id="tutorialNoClasf">未分类</div>
+                    <div class="paddtb8 margint10 mouse-pointer" data-id="tutorialAllClasf">全部分类</div>
+                </div>
+                <%for(var i=0; i<data.length; i++){%>
+                    <div class="bc-wh row padd212 mouse-pointer classifyList"  data-classifyid="<%=data[i].classifyId%>">
+                        <div class="col-md-10">
+                            <span class=""><%=data[i].name%></span>
+                        </div>
+                    </div>
+                <%}%>
+                <!-- <div class="bc-wh row padd212">
+                    <div class="col-md-10">
+                        <span class="">流行服饰</span>
+                    </div>
+                    <div class="col-md-2">
+                        <a><img src="assets/css/img/delete.png" width="16" height="16" /></a>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+        <div class="col-md-10 col-md-offset-2">
+            <div id="tutorialManagerContent" class="margint15 marginl15">
+                <div id="toppp" class="table-responsive div-margin-top">
+                    <div class="row col-sm-11">
+                        <div class="col-sm-6 col-md-3 col-lg-3">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="name"
+                                        placeholder="标题">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-lg-3">
+                            <form role="form">
+                                <div class="form-group">
+                                    <select class="form-control" id="classifyType">
+                                        <option>全部</option>
+                                        <option>普通</option>
+                                        <option>组图</option>
+                                    </select>
+                                </div>
+                            </form>            
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-lg-3">
+                            <form role="form">
+                                <div class="form-group">
+                                    <select class="form-control" id="courseStatus">
+                                        <option>全部</option>
+                                        <option>隐藏</option>
+                                        <option>显示</option>
+                                    </select>
+                                </div>
+                            </form>          
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-lg-3" id="courseSearch">
+                            <button type="button" class="btn btn-success" style="width:50%;">查询</button>             
+                        </div>
+                
+                    </div>
+                    <div class="row col-sm-11 marginb15">            
+                        <div class="col-sm-6 col-md-3 col-lg-3">
+                            <div class="input-group date">
+                              <input type="text" placeholder="更新时间" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-lg-3">
+                            <div class="input-group date">
+                              <input type="text" placeholder="至时间" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                            </div>
+                        </div>
+                    </div>        
+                    <div class="row col-sm-11 marginb15">
+                        <div class="col-sm-12">
+                            <form class="form-inline" role="form">
+                                <div class="checkbox" id="tutorial-allChoose">
+                                  <label>
+                                    <input type="checkbox" id="selAll"> 当前页全选
+                                  </label>
+                                </div>
+                                <button type="button" class="btn btn-warning" style="margin-left:20px;" id="lotDelCourse">删除</button>
+                                <button type="button" class="btn btn-success" style="margin-left:20px;" id="lotShowCourse">显示</button>
+                                <button type="button" class="btn btn-default" style="margin-left:20px;" id="lotHideCourse">隐藏</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="">
+                    <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-nowrap center"></th>
+                            <th class="text-nowrap center">标题</th>
+                            <th class="text-nowrap center">类型</th>
+                            <th class="text-nowrap center">分类</th>
+                            <th class="text-nowrap center">上传时间</th>
+                            <th class="text-nowrap center">更新时间</th>
+                            <th class="text-nowrap center">状态</th>
+                            <th class="text-nowrap center">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <%for(var i=0; i<data.length; i++){%>
+                            <tr>
+                                <td class="text-nowrap center">
+                                     <div class="checkbox">
+                                        <label><input type="checkbox" value="<%=data[i].id%>"></label>
+                                     </div>
+                                </td>
+                                <td class="text-nowrap center"><%=data[i].name%></td>
+                                <td class="text-nowrap center"><%=data[i].classifyId%></td>
+                                <td class="text-nowrap center"><%=data[i].classifyName%></td>
+                                <td class="text-nowrap center"><%=data[i].createTime%></td>
+                                <td class="text-nowrap center"><%=data[i].updateTime%></td>
+                                <td class="text-nowrap center status"><%=data[i].courseStatus_status%></td>
+                                <td class="text-nowrap center mouse-pointer" data-id="<%=data[i].id%>"><span class="editStatus"><%=data[i].courseStatus_handle%></span><span class="delCourse">&nbsp;&nbsp;删除</span></td>
+                            </tr>
+                        <%}%>
+                        <!-- <tr>
+                            <td class="text-nowrap center">
+                                 <div class="checkbox">
+                                    <label><input type="checkbox" value="2"></label>
+                                 </div>
+                            </td>
+                            <td class="text-nowrap center">如何搭配最时尚</td>
+                            <td class="text-nowrap center">组图</td>
+                            <td class="text-nowrap center">流行趋势</td>
+                            <td class="text-nowrap center">2015-12-07 20:20:39</td>
+                            <td class="text-nowrap center">2015-12-07 20:20:39</td>
+                            <td class="text-nowrap center">隐藏</td>
+                            <td class="text-nowrap center mouse-pointer"><span>显示</span><span>&nbsp;&nbsp;删除</span></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                </div>
+                <div class="">
+                    <div class="row margin00">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <p class="pagination">当前页<%=data.length%>条,共2条.每页1-20</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="row">
+                                <div class="col-sm-4 text-right">
+                                   <form role="form" class="pagination">
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                            </form> 
+                                </div>
+                                <div class="col-sm-8">
+                                    <ul class="pagination">
+                                <li>
+                                    <a href="#">&laquo;</a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">1</a>
+                                </li>
+                                <li>
+                                    <a href="#">2</a>
+                                </li>
+                                <li>
+                                    <a href="#">3</a>
+                                </li>
+                                <li>
+                                    <a href="#">4</a>
+                                </li>
+                                <li>
+                                    <a href="#">5</a>
+                                </li>
+                                <li>
+                                    <a href="#">&raquo;</a>
+                                </li>
+                            </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+   //点击当前页全选  逻辑
+   $("#tutorial-allChoose").on("click",function(){
+       if($("input",$(this)).prop("checked")){
+           $("input","table").prop("checked",true);
+       }else{
+           $("input","table").prop("checked",false);
+       }
+   });
+   // //点击 table中input按钮逻辑  
+   // var tur_inputLen = $("input","table").length;
+   // //alert(tur_inputLen+".....");
+   // for(var i=0; i<tur_inputLen; i++){
+       // $("input","table").eq(i).on("click",function(){
+//            
+       // });
+   // } 
+
+
+
+    // //侧边栏  类别点击操作    逻辑移到view 里了;
+    // $(".classifyList").on("click",function(){
+        // courseListViewInstance.searchCourseList($(this));
+    // });
+
+    //操作 删除  逻辑
+    $(".delCourse").on("click",function(){
+        courseListViewInstance.delCourseList($(this));
+    });
+    
+    //操作 批量删除  逻辑
+    $("#lotDelCourse").on("click",function(){
+        courseListViewInstance.delCourseList();
+    });
+    
+    //操作  隐藏/显示  逻辑
+    $(".editStatus").on("click",function(){
+        courseListViewInstance.editCourseListStatus($(this));
+    });
+    
+    //操作  批量显示  逻辑
+    $("#lotShowCourse").on("click",function(){
+        //alert("lotShowCourse");
+        var type="lotShow";
+        courseListViewInstance.editCourseListStatus(type);
+    });
+    
+    //操作  批量隐藏  逻辑
+    $("#lotHideCourse").on("click",function(){
+        var type="lotHide";
+        courseListViewInstance.editCourseListStatus(type);
+    });
+    
+    
+</script>

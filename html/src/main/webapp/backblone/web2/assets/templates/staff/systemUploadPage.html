@@ -1,0 +1,52 @@
+<h3 class="font-c top">自定义页面管理</h3>
+<div style="margin-left:96px;" id="customPageUp">
+    <div class="tel-marB" id="myFile" style="overflow: hidden;">
+         <!-- <span class="tel-verB">活动名称：</span> -->
+         <div  class="floatL umar-r" style=" border-bottom: 1px solid #ccc; margin-top:5px; padding-bottom: 5px;">
+             活动名称：<input type="text" class="umar-r tel-verB" style="border:none; outline: none;" id="pageName">
+         </div>
+         <!-- <input type="text" class="umar-r tel-verB" style="border:none; border-bottom: 1px solid #ccc; outline: none;"> -->
+         <div class="floatL">
+             <!-- <button type="button" class="btn umar-r orange c-wh" style="outline: none;">选择文件</button> -->
+             <div id="input-file" class="btn umar-r c-wh orange" style="outline: none; background-color: #FF5F00;">
+                <span id="text">选择文件</span>
+                <input id="file" type="file" accept="" value=""/>
+             </div> 
+             <span class="font-c tel-verB" id="fileName">暂无选择文件</span>
+         </div>
+    </div>
+    <div id="myTab" class="" style="margin-top:20px;">
+        <button type="button" class="btn btn-default umar-r btn-success c-wh" style="outline: none;" id="upload">
+           上传
+        </button>
+        <a href="#custom" target="_self" >
+           <button type="button" class="btn btn-default umar-r btn-success c-wh" style="outline: none;">
+              返回
+           </button>
+        </a>
+    </div>
+    <div class="" style="margin-top:20px;">
+        <div class="tel-marB">文件说明：</div>
+        <div class="" style="border:1px solid #000; width:597px;">
+            <img src="assets/css/img/active.png"/>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#upload","#customPageUp").on("click",function(){
+        customPageAddViewInstance.customPageAdd();
+    });
+    
+    $("#file","#customPageUp").on("change",function(){
+        var str = $("#file").val();
+        //alert(str);
+        str = str.substring(str.lastIndexOf("\\")+1,str.length);
+        str == "" ? $("#fileName","#customPageUp").text("暂无选择文件") : $("#fileName","#customPageUp").text(str);
+        if($("#fileName","#customPageUp").text()!=""&&$("#fileName","#customPageUp").text()!="暂无选择文件"){
+            $("#text","#customPageUp").text("重新选择");
+        }else{
+            $("#text","#customPageUp").text("选择文件");
+        }
+    });
+</script>

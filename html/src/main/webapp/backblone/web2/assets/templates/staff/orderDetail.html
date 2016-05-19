@@ -1,0 +1,157 @@
+<div class="table-responsive">
+    <div class=" div-margin-top">
+        <h3>订单信息</h3>
+    </div>       
+</div>
+<div class="table-responsive text-center" style="max-height:80px;overflow-y:hidden;overflow-x: scroll;"> 
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-nowrap text-center">订单编号</th>
+                <th class="text-nowrap text-center">OMS单号</th>
+                <th class="text-nowrap text-center">订单状态</th>
+                <th class="text-nowrap text-center">来源</th>
+                <th class="text-nowrap text-center">店铺</th>
+                <th class="text-nowrap text-center">下单时间</th>
+                <th class="text-nowrap text-center">付款时间</th>
+                <th class="text-nowrap text-center">运费</th>
+                <th class="text-nowrap text-center">实付金额</th>
+                <th class="text-nowrap text-center">实付积分</th>
+                <th class="text-nowrap text-center">支付方式</th>
+                <th class="text-nowrap text-center">支付状态</th>
+                <th class="text-nowrap text-center">订单积分预估值</th>
+                <th class="text-nowrap text-center">捆绑SKU</th>
+                <th class="text-nowrap text-center">捆绑数量</th>
+                <th class="text-nowrap text-center">捆绑原因</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr>
+                <td class="text-nowrap"><%=data[0].orderNo%></td>
+                <td class="text-nowrap"><%=data[0].OMSNo%></td>
+                <td class="text-nowrap"><%=data[0].orderStatus%></td>
+                <td class="text-nowrap"><%=data[0].source%></td>
+                <td class="text-nowrap"><%=data[0].shopNo%></td>
+                <td class="text-nowrap"><%=data[0].orderCreateTime%></td>
+                <td class="text-nowrap"><%=data[0].payTime%></td>
+                <td class="text-nowrap"><%=data[0].freight%></td>
+                <td class="text-nowrap"><%=data[0].payMoney%></td>
+                <td class="text-nowrap"><%=data[0].payScores%></td>
+                <td class="text-nowrap"><%=data[0].payType%></td>
+                <td class="text-nowrap"><%=data[0].payStatus%></td>
+                <td class="text-nowrap"><%=data[0].preScores%></td>
+                <td class="text-nowrap"><%=data[0].bindSKU%></td>
+                <td class="text-nowrap"><%=data[0].bindCount%></td>
+                <td class="text-nowrap"><%=data[0].bindReason%></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="table-responsive">
+    <div class=" div-margin-top">
+        <h3>商品信息</h3>
+    </div>       
+</div>
+<div class="table-responsive text-center" style="max-height:400px;overflow-x: scroll;"> 
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-nowrap text-center">商品图片</th>
+                <th class="text-nowrap text-center">产品编号</th>
+                <th class="text-nowrap text-center">商品名称</th>
+                <th class="text-nowrap text-center">商品状态</th>
+                <th class="text-nowrap text-center">商品类型</th>
+                <th class="text-nowrap text-center">商品规格</th>
+                <th class="text-nowrap text-center">商品重量</th>
+                <th class="text-nowrap text-center">原价</th>
+                <th class="text-nowrap text-center">实际销售价</th>
+            </tr>
+        </thead>
+        <tbody >
+            <%for(var i=0;i<data[0].goods.length;i++){%>
+            <tr>
+                <td class="text-nowrap">
+                    <img src="<%=data[0].goods[i].goodsImg%>" class="center-block img-in-table-td" alt="">
+                </td>
+                <td class="text-nowrap"><%=data[0].goods[i].goodsNo%></td>
+                <td class="text-nowrap"><%=data[0].goods[i].goodsName%></td>
+                <td class="text-nowrap"><%=data[0].goods[i].goodsStatus%></td>
+                <td class="text-nowrap"><%=data[0].goods[i].goodsType%></td>
+                <td class="text-nowrap"><%=data[0].goods[i].goodsSpgg%></td>
+                <td class="text-nowrap"><%=data[0].goods[i].goodsWeight%></td>
+                <td class="text-nowrap"><%=data[0].goods[i].originalPrice%></td>
+                <td class="text-nowrap"><%=data[0].goods[i].price%></td>
+            </tr>
+            <%} %>
+            
+        </tbody>
+    </table>
+</div>
+
+
+<div class="table-responsive">
+    <div class=" div-margin-top">
+        <h3>买家信息</h3>
+    </div>       
+</div>
+<div class="table-responsive text-center" style="max-height:80px;overflow-y:hidden;overflow-x: scroll;"> 
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-nowrap text-center">买家ID</th>
+                <th class="text-nowrap text-center">省</th>
+                <th class="text-nowrap text-center">市</th>
+                <th class="text-nowrap text-center">区</th>
+                <th class="text-nowrap text-center">详细地址</th>
+                <th class="text-nowrap text-center">需求发票</th>
+                <th class="text-nowrap text-center">发票抬头</th>
+                <th class="text-nowrap text-center">邮政编码</th>
+                <th class="text-nowrap text-center">收货人姓名</th>
+                <th class="text-nowrap text-center">联系电话</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr>
+                <td class="text-nowrap"><%=data[0].buyerInfo.buyerId%></td>
+                <td class="text-nowrap"><%=data[0].buyerInfo.provinces%></td>
+                <td class="text-nowrap"><%=data[0].buyerInfo.cities%></td>
+                <td class="text-nowrap"><%=data[0].buyerInfo.area%></td>
+                <td class="text-nowrap"><%=data[0].buyerInfo.address%></td>
+                <td class="text-nowrap">是</td>
+                <td class="text-nowrap"></td>
+                <td class="text-nowrap"></td>
+                <td class="text-nowrap">胡一刀</td>
+                <td class="text-nowrap">15839389483</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-responsive">
+    <div class=" div-margin-top">
+        <h3>导购信息</h3>
+    </div>       
+</div>
+<div class="table-responsive text-center marginb15" style="max-height:80px;overflow-y:hidden;overflow-x: scroll;"> 
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-nowrap text-center">门店ID</th>
+                <th class="text-nowrap text-center">导购员工ID</th>
+                <th class="text-nowrap text-center">导购微信ID</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr>
+                <td class="text-nowrap"><%=data[0].shoppingGuide.shopId%></td>
+                <td class="text-nowrap"><%=data[0].shoppingGuide.guideId%></td>
+                <td class="text-nowrap"><%=data[0].shoppingGuide.guideWeChat%></td>
+            </tr>
+        </tbody>
+    </table>
+</div>       
+
+
+
