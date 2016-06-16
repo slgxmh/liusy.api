@@ -3,7 +3,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cn.shuyouliu</groupId>
 	<artifactId>parent</artifactId>
-	
 	<packaging>pom</packaging>
 	<properties>
 		<spring.version>3.2.6.RELEASE</spring.version>
@@ -13,7 +12,7 @@
 		<jcloverslf4j.version>1.7.6</jcloverslf4j.version>
 		<shuyouliu.version>0.0.1-SNAPSHOT</shuyouliu.version>
 	</properties>
-	<version>${shuyouliu.version}</version>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<name>parent</name>
 	<description>liusy.api.manager</description>
@@ -85,7 +84,7 @@
 		<module>../upload</module>
 		<module>../errorJson</module>
 		<module>../common</module>
-		<module>../sql</module>
+		
 		<module>../service</module>
 		<module>../dao</module>
 	</modules>

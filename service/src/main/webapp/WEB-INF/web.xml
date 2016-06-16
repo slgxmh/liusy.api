@@ -5,7 +5,7 @@
 	<display-name>Demo - Restful Web Application</display-name>
    
 	<listener>
-		<listener-class>
+		<listener-class> 
 			org.springframework.web.context.ContextLoaderListener
 		</listener-class>
 	</listener>

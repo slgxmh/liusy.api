@@ -4,15 +4,20 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 
 import cn.shuyouliu.liusy.dao.IUserDao;
 import cn.shuyouliu.liusy.entity.User;
@@ -32,8 +37,20 @@ public class UserAPI {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<User> getUserList() {
-		return userDao.getUserList();
+	public List<User>  getUserList(@QueryParam("page" )  String page) {
+		// 分页
+		PageBounds pageBounds = new PageBounds();
+		pageBounds.setLimit(3);
+		int npage = 1;
+		if (page != null){
+			try {
+				npage = Integer.valueOf(page);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		pageBounds.setPage(npage);
+		return userDao.getUserList(pageBounds);
 	}
 	
 	@POST
@@ -55,10 +72,15 @@ public class UserAPI {
 	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String updateUser(User user) {
+	public User updateUser(User user) {
+		/*int x = 0;
+		int y = 1; 
+		double z = y/x;
+		*/
 		userDao.update(user);
-		return "{\"success\":\"true\"}";
+		return user;
 	}
+	
 	
 	@DELETE
 	@Path("/{id}")
@@ -74,4 +96,8 @@ public class UserAPI {
 	public String validate(@PathParam("username") String username) {
 		return userDao.getUserByUsername(username) == null ? "true" : "false";
 	}
+	
+	
+	
+	
 }

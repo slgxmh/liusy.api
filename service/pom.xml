@@ -19,6 +19,7 @@
 		<jersey.version>2.4.1</jersey.version>
 		<logback.version>1.1.1</logback.version>
 		<jcloverslf4j.version>1.7.6</jcloverslf4j.version>
+		<shuyouliu.version>0.0.1-SNAPSHOT</shuyouliu.version>
 	</properties>
 
 	<dependencies>
@@ -105,8 +106,14 @@
 			<version>${shuyouliu.version}</version>
 		</dependency>
 	</dependencies>
+	
 	<build>
 		<plugins>
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-archetype-plugin</artifactId>
+	            <version>2.2</version>
+	        </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
