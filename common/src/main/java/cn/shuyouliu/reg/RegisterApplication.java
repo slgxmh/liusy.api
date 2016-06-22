@@ -29,5 +29,5 @@ public class RegisterApplication extends ResourceConfig {
 		register(LoggingResponseFilter.class);
 		register(Exception404Mapper.class);
 	}
-
+ 
 }

@@ -2,11 +2,14 @@ package cn.shuyouliu.liusy.entity;
 
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.springframework.beans.factory.annotation.Required;
+
 import javax.xml.bind.annotation.XmlAccessType;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class User {
+public class User { 
 	private int id;
 	private String username;
 	private String password;

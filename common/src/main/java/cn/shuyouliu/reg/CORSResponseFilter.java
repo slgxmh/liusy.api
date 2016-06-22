@@ -16,13 +16,14 @@ implements ContainerResponseFilter {
 	public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)
 			throws IOException {
 		
-		logger.debug("CORSResponseFilter  method : " +requestContext.getMethod()
+		logger.debug("V01 CORSResponseFilter  method : " +requestContext.getMethod()
 			+" UriInfo :"+ requestContext.getUriInfo());
 		MultivaluedMap<String, Object> headers = responseContext.getHeaders();
-		headers.add("Access-Control-Allow-Origin", "*");
+		headers.add("Access-Control-Allow-Origin", "http://localhost");
 		//headers.add("Access-Control-Allow-Origin", "http://zyhao.com"); //allows CORS (跨域请求 ) requests only coming from zyhao.com		
-		headers.add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");			
-		headers.add("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-shuyouliu.cn");
-		//http://www.cnblogs.com/dojo-lzz/p/4265637.html
+		headers.add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");			
+		headers.add("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+		//http://www.cnblogs.com/dojo-lzz/p/4265637.html , X-shuyouliu.cn
+		
 	}
 }

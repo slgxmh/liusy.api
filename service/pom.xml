@@ -12,7 +12,6 @@
 	<name>service</name>
 	<url>http://maven.apache.org</url>
 
-
 	<properties>
 		<spring.version>3.2.6.RELEASE</spring.version>
 		<jetty.version>9.0.7.v20131107</jetty.version>
@@ -106,7 +105,35 @@
 			<version>${shuyouliu.version}</version>
 		</dependency>
 	</dependencies>
-	
+	<profiles>  
+        <profile>  
+            <id>dev</id>  
+            <properties>  
+                <env>_dev</env>  
+            </properties>  
+            <activation>  
+                <activeByDefault>true</activeByDefault>  
+            </activation>  
+        </profile>  
+        <profile>  
+            <id>test</id>  
+            <properties>  
+                <env>_test</env>  
+            </properties>  
+        </profile>  
+        <profile>  
+            <id>uat</id>  
+            <properties>  
+                <env>_uat</env>  
+            </properties>  
+        </profile>  
+        <profile>  
+            <id>prod</id>  
+            <properties>  
+                <env>_prod</env>  
+            </properties>  
+        </profile>  
+    </profiles>
 	<build>
 		<plugins>
 	        <plugin>
@@ -181,6 +208,16 @@
 				</executions>
 			</plugin>
 		</plugins>
+		
+		<filters>
+			<filter>src/main/resources/config/res${env}.properties</filter>
+		</filters>
+		<resources>
+			<resource> 
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>	
 	</build>
 
 </project>

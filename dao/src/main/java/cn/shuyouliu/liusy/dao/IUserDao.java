@@ -13,7 +13,7 @@ import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 
 import cn.shuyouliu.liusy.entity.User;
 
-public interface IUserDao {
+public interface IUserDao { 
 	@Select("SELECT * FROM rd_user WHERE id = #{id}")
 	public User getUserById(@Param("id") int id);
 	
@@ -22,7 +22,6 @@ public interface IUserDao {
 	
 	@Select("SELECT * FROM rd_user order by id")
 	public List<User> getUserList();
-	
 	public List<User> getUserList(PageBounds pageBounds);
 	
 	@Insert("INSERT INTO rd_user(username, password, phone, email) " +

@@ -64,7 +64,7 @@ public class UserAPI {
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public User getUser(@PathParam("id") int id) {
+	public User getUser(   @PathParam("id") int id) {
 		return userDao.getUserById(id);
 	}
 	
@@ -75,8 +75,8 @@ public class UserAPI {
 	public User updateUser(User user) {
 		/*int x = 0;
 		int y = 1; 
-		double z = y/x;
-		*/
+		double z = y/x;*/
+		
 		userDao.update(user);
 		return user;
 	}

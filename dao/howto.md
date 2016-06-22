@@ -66,5 +66,19 @@ pom.xml
 			</dependency>
 
 
-
+分页插件
+	需要一个常规方法+有pageBound的方法。同名某则报错：org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): cn.shuyouliu.liusy.dao.IUserDao.getUserList
+	@Select("SELECT * FROM rd_user order by id")
+	public List<User> getUserList();
+	public List<User> getUserList(PageBounds pageBounds);
+	
+	sqlSessionFactory 配置
+	<property name="plugins">  
+        	<bean class="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor" >
+        		<property name="dialectClass" value="com.github.miemiedev.mybatis.paginator.dialect.MySQLDialect"/>
+        	</bean>  
+    </property>
+    	
+    	
+    
     
