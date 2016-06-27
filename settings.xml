@@ -264,7 +264,8 @@ under the License.
       </properties>
     </profile>
     -->
-	<id>nexus</id>
+	<profile>
+		<id>nexus</id>
             <repositories>
                 <repository>
                     <id>nexus</id>
@@ -289,6 +290,7 @@ under the License.
                 </snapshots>
              </pluginRepository>
         </pluginRepositories>
+	</profile>
   </profiles>
 
   <!-- activeProfiles
