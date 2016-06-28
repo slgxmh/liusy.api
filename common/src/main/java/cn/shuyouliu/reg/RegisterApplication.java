@@ -14,7 +14,7 @@ import cn.shuyouliu.common.Exception404Mapper;
  * 
  * @author ama
  *
- */
+ */ 
 public class RegisterApplication extends ResourceConfig {
 
 	/**
