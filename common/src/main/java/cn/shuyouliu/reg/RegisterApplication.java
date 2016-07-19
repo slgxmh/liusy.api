@@ -22,6 +22,7 @@ public class RegisterApplication extends ResourceConfig {
 	 */
 	public RegisterApplication() {
 		packages("cn.shuyouliu.liusy.action");
+		packages("cn.shuyouliu.gen.service");
 		register(RequestContextFilter.class);
 		register(JacksonFeature.class);
 		register(MultiPartFeature.class);

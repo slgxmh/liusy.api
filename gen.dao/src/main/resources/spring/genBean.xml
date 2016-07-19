@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop.xsd
+			http://www.springframework.org/schema/context
+           	http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/util
+           	http://www.springframework.org/schema/util/spring-util.xsd">
+	
+
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />  
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>  
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" scope="singleton">
+	    <property name="jndiName" value="java:comp/env/jdbc/shuyouliuDB" />
+	    <property name="resourceRef" value="true" />
+	</bean>
+	
+	   
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	    <property name="dataSource" ref="dataSource" />
+	    <!-- 
+	    <property name="configLocation" value="classpath:config/mybatisV3.xml"/>
+	     -->
+	    <property name="mapperLocations" value="classpath*:mappers/*/*.xml" />
+	    <property name="typeAliasesPackage" value="cn.shuyouliu.gen.entity" />
+
+    	 <property name="plugins">  
+        	<bean class="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor" >
+        		<property name="dialectClass" value="com.github.miemiedev.mybatis.paginator.dialect.MySQLDialect"/>
+        	</bean>  
+    	</property>
+	</bean>
+	
+	<!-- 扫描所有interface接口、便于以bean对象形式在其他类里通过@Autowired进行注入 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">   
+    	<!-- <property name="annotationClass" value="org.springframework.stereotype.Repository"/>-->
+	    <!--指定要扫描包： 多个包用逗号隔开 -->  
+	    <property name="basePackage" value="cn.shuyouliu.gen.dao" />  
+	    <!--指定sqlSessionFactory -->  
+	    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>  
+	</bean>
+	
+	
+	
+</beans>
